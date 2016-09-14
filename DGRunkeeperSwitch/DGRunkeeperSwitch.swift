@@ -258,8 +258,10 @@ open class DGRunkeeperSwitch: UIControl {
             var size = label.sizeThatFits(CGSize(width: titleLabelMaxWidth, height: titleLabelMaxHeight))
             size.width = min(size.width, titleLabelMaxWidth)
             
+            let xpart1 = bounds.width / CGFloat(titleLabels.count) * CGFloat(index)
+            let xpart2 = bounds.width / CGFloat(titleLabels.count) - size.width
             let origin = CGPoint(
-                x: floor((bounds.width / CGFloat(titleLabels.count)) * CGFloat(index) + (bounds.width / CGFloat(titleLabels.count) - size.width) / 2.0),
+                x: floor((xpart1 + xpart2) / 2.0),
                 y: floor((bounds.height - size.height) / 2.0)
             )
             
